@@ -1,4 +1,4 @@
-export interface Airport {
+export interface AirportData {
     id: number;
     name: string;
     iata: string;
@@ -20,7 +20,3 @@ export interface Airport {
     countryId: number;
   }
   
-  export interface AirportData {
-    version: string;
-    rows: Airport[];
-  }

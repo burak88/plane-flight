@@ -9,10 +9,18 @@ const instance = axios.create({
     "X-RapidAPI-Host": process.env.NEXT_PUBLIC_RAPID_API_HOST,
   },
 });
-export const getAirports = createAsyncThunk<AirportData>("getAirports", async () => {
+// export const getAirports = createAsyncThunk<AirportData[]>("getAirports", async () => {
+//   try {
+//     const response =  instance.get("/airportRes.json").then(res => res.data);
+//     return response;
+//   } catch (error) {
+//     throw error;
+//   }
+// });
+export const getAirportRes = createAsyncThunk<AirportData[]>("getAirportRes",async( )=> { 
   try {
-    const response =  instance.get("/airports/list").then(res => res.data);
-    return response;
+    const data = require("/airportRes.json");
+    return data;
   } catch (error) {
     throw error;
   }

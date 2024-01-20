@@ -1,7 +1,6 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import {  InitialStateProps } from "./airportTypes";
-import { getAirports } from "@/service";
-import { AirportData } from "@/baselib";
+import { getAirportRes } from "@/service";
 
 const initialState: InitialStateProps={
     allAirports: []
@@ -12,9 +11,9 @@ const airportSlice = createSlice({
     initialState,
     reducers:{},
     extraReducers: (builder)=>{
-        builder.addCase(getAirports.fulfilled,(state,action:PayloadAction<AirportData>)=>{
-            state.allAirports = action.payload.rows
-        })
+       builder.addCase(getAirportRes.fulfilled,(state,action:PayloadAction<InitialStateProps['allAirports']>)=>{
+        state.allAirports = action.payload
+       })
     }
 })
 
